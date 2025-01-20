@@ -1,0 +1,57 @@
+let activities = [
+            { name: 'Building plan & approvals', days: 90, start: 1, type: 'parallel' },
+            { name: 'Excavation', days: 2, start: 1, type: 'critical' },
+            { name: 'Soakpit/Septic tank', days: 20, start: 1, type: 'parallel' },
+            { name: 'Foundation & Plinth beams', days: 20, start: 3, type: 'critical' }
+        ];
+
+        function generateChart() {
+            const startDate = new Date(document.getElementById('startDate').value);
+            const chart = document.getElementById('ganttChart');
+            const timeline = document.getElementById('timeline');
+            chart.innerHTML = '';
+            timeline.innerHTML = '';
+            
+            for (let i = 0; i <= 210; i += 10) {
+                const timeBlock = document.createElement('div');
+                timeBlock.innerText = i;
+                timeline.appendChild(timeBlock);
+            }
+            
+            activities.forEach((activity, index) => {
+                const taskRow = document.createElement('div');
+                taskRow.classList.add('task-row');
+                
+                const taskName = document.createElement('div');
+                taskName.classList.add('task-name');
+                taskName.innerText = activity.name;
+                
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.value = activity.days;
+                input.min = 1;
+                input.classList.add('task-input');
+                input.onchange = function() {
+                    activity.days = parseInt(input.value);
+                    generateChart();
+                };
+                
+                const bar = document.createElement('div');
+                bar.classList.add('bar', activity.type);
+                bar.style.width = `${activity.days * 5}px`;
+                bar.style.marginLeft = `${activity.start * 5}px`;
+                bar.innerText = `${activity.days} days`;
+                
+                taskRow.appendChild(taskName);
+                taskRow.appendChild(input);
+                taskRow.appendChild(bar);
+                chart.appendChild(taskRow);
+            });
+        }
+
+        window.onload = function() {
+            const today = new Date();
+            const todayStr = today.toISOString().split('T')[0];
+            document.getElementById('startDate').value = todayStr;
+            generateChart();
+        };

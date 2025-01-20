@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Construction Gantt Chart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .gantt-chart {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin: 20px 0;
+        }
+        .task {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+        .task-name {
+            width: 250px;
+            font-weight: bold;
+        }
+        .bar {
+            height: 30px;
+            background-color: #4caf50;
+            margin-left: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>House Construction Gantt Chart</h1>
+    <div class="gantt-chart" id="gantt"></div>
+
+    <script>
+        const tasks = [
+            { name: 'Building plan & approvals', start: 1, duration: 90 },
+            { name: 'Excavation', start: 1, duration: 2 },
+            { name: 'Soakpit/Septic tank', start: 1, duration: 20 },
+            { name: 'Dug well/Borewell', start: 1, duration: 2 },
+            { name: 'Foundation & Plinth beams', start: 3, duration: 20 },
+            { name: 'Backfilling', start: 25, duration: 4 },
+            { name: 'RCC Column starters', start: 25, duration: 7 },
+            { name: 'Columns, Roof slab, Beams & Staircase', start: 32, duration: 45 },
+            { name: 'Brickwork, Lintels, Sunshades', start: 91, duration: 30 },
+            { name: 'Doors & windows', start: 1, duration: 30 },
+            { name: 'Installation of doors and windows', start: 121, duration: 15 },
+            { name: 'Electrical Wiring & Accessories', start: 131, duration: 10 },
+            { name: 'Plumbing work', start: 141, duration: 7 },
+            { name: 'Sanitary Installation', start: 148, duration: 5 },
+            { name: 'Plastering', start: 153, duration: 20 },
+            { name: 'Flooring', start: 173, duration: 18 },
+            { name: 'Painting', start: 191, duration: 15 },
+            { name: 'POP False ceiling', start: 171, duration: 7 },
+            { name: 'Modular Kitchen', start: 179, duration: 7 },
+            { name: 'Boundary wall', start: 121, duration: 6 },
+            { name: 'Water Connection', start: 1, duration: 30 },
+            { name: 'Electrical connection', start: 1, duration: 90 }
+        ];
+
+        const chartContainer = document.getElementById('gantt');
+        const maxDays = 205;
+
+        tasks.forEach(task => {
+            const taskElement = document.createElement('div');
+            taskElement.classList.add('task');
+
+            const taskName = document.createElement('div');
+            taskName.classList.add('task-name');
+            taskName.textContent = task.name;
+
+            const bar = document.createElement('div');
+            bar.classList.add('bar');
+            bar.style.width = `${(task.duration / maxDays) * 100}%`;
+            bar.style.marginLeft = `${(task.start / maxDays) * 100}%`;
+            
+            taskElement.appendChild(taskName);
+            taskElement.appendChild(bar);
+            chartContainer.appendChild(taskElement);
+        });
+    </script>
+</body>
+</html>

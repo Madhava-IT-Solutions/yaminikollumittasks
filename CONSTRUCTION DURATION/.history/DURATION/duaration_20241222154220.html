@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Construction Gantt Chart</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .chart-container {
+            width: 90%;
+            margin: auto;
+        }
+        .gantt-chart {
+            position: relative;
+            margin-top: 20px;
+            height: 700px;
+        }
+        .gantt-bar {
+            position: absolute;
+            height: 30px;
+            background-color: #4CAF50;
+            color: white;
+            line-height: 30px;
+            padding-left: 10px;
+            border-radius: 5px;
+        }
+        .gantt-bar span {
+            position: absolute;
+            right: -50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <h1>House Construction Schedule</h1>
+        <div class="gantt-chart">
+            <div class="gantt-bar" style="width: 90%; left: 0%">Building plan & approvals <span>Day 90</span></div>
+            <div class="gantt-bar" style="width: 2%; left: 0%">Excavation <span>Day 2</span></div>
+            <div class="gantt-bar" style="width: 20%; left: 0%">Soakpit/Septic tank <span>Day 20</span></div>
+            <div class="gantt-bar" style="width: 2%; left: 0%">Dug well/Borewell <span>Day 2</span></div>
+            <div class="gantt-bar" style="width: 22%; left: 3%">Foundation & Plinth beams <span>Day 22</span></div>
+            <div class="gantt-bar" style="width: 4%; left: 25%">Backfilling <span>Day 28</span></div>
+            <div class="gantt-bar" style="width: 7%; left: 25%">RCC Column starters <span>Day 31</span></div>
+            <div class="gantt-bar" style="width: 45%; left: 32%">Columns, Roof slab, Beams & Staircase <span>Day 76</span></div>
+            <div class="gantt-bar" style="width: 30%; left: 91%">Brickwork, Lintels, Sunshades <span>Day 120</span></div>
+            <div class="gantt-bar" style="width: 15%; left: 121%">Installation of doors and windows <span>Day 135</span></div>
+            <div class="gantt-bar" style="width: 10%; left: 131%">Electrical Wiring & Accessories <span>Day 140</span></div>
+            <div class="gantt-bar" style="width: 7%; left: 141%">Plumbing work <span>Day 147</span></div>
+            <div class="gantt-bar" style="width: 5%; left: 148%">Sanitary Installation <span>Day 152</span></div>
+            <div class="gantt-bar" style="width: 20%; left: 153%">Plastering <span>Day 172</span></div>
+            <div class="gantt-bar" style="width: 18%; left: 173%">Flooring <span>Day 190</span></div>
+            <div class="gantt-bar" style="width: 15%; left: 191%">Painting <span>Day 205</span></div>
+            <div class="gantt-bar" style="width: 7%; left: 171%">POP False ceiling <span>Day 178</span></div>
+            <div class="gantt-bar" style="width: 7%; left: 179%">Modular Kitchen <span>Day 185</span></div>
+            <div class="gantt-bar" style="width: 6%; left: 121%">Boundary wall <span>Day 126</span></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

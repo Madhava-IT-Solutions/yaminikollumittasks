@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Cost Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="number"], select, button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Area Cost Calculator</h1>
+        <div class="form-group">
+            <label for="area">Enter Area:</label>
+            <input type="number" id="area" placeholder="Enter area in selected unit" step="0.01" min="0">
+        </div>
+        <div class="form-group">
+            <label for="unit">Select Unit of Measurement:</label>
+            <select id="unit">
+                <option value="sqmt">Square Meter</option>
+                <option value="sqyd">Square Yard</option>
+                <option value="sqft">Square Feet</option>
+            </select>
+        </div>
+        <button onclick="calculateCosts()">Next</button>
+
+        <table id="resultTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Tentative Cost (₹)</th>
+                    <th>Loss Due to Delay Per Day (₹)</th>
+                    <th>Loss Due to Delay Per Month (₹)</th>
+                    <th>Loss Due to Delay Per Year (₹)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="tentativeCost"></td>
+                    <td id="lossPerDay"></td>
+                    <td id="lossPerMonth"></td>
+                    <td id="lossPerYear"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function calculateCosts() {
+            const area = parseFloat(document.getElementById('area').value);
+            const unit = document.getElementById('unit').value;
+
+            if (isNaN(area) || area <= 0) {
+                alert('Please enter a valid area.');
+                return;
+            }
+
+            const baseCostPerSqmt = 19810;
+            const conversionFactors = {
+                sqmt: 1,
+                sqyd: 1.19599005,
+                sqft: 10.7639104
+            };
+
+            const selectedConversionFactor = conversionFactors[unit];
+            const areaInSqMeters = area / selectedConversionFactor;
+
+            const tentativeCost = (areaInSqMeters * baseCostPerSqmt).toFixed(2);
+            const lossPerDay = 650;
+            const lossPerMonth = 19500;
+            const lossPerYear = 237250;
+
+            document.getElementById('tentativeCost').textContent = tentativeCost;
+            document.getElementById('lossPerDay').textContent = lossPerDay;
+            document.getElementById('lossPerMonth').textContent = lossPerMonth;
+            document.getElementById('lossPerYear').textContent = lossPerYear;
+
+            document.getElementById('resultTable').style.display = 'table';
+        }
+    </script>
+</body>
+</html>

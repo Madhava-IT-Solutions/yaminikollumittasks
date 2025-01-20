@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Construction Gantt Chart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chart-container">
+        <canvas id="ganttChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctx = document.getElementById('ganttChart').getContext('2d');
+
+            const tasks = [
+                'Building plan & approvals', 'Excavation', 'Soakpit/Septic tank', 'Dug well/Borewell',
+                'Foundation & Plinth beams', 'Backfilling', 'RCC Column starters',
+                'Columns, Roof slab, Beams & Staircase', 'Brickwork, Lintels, Sunshades',
+                'Doors & windows', 'Installation of doors and windows',
+                'Electrical Wiring & Accessories', 'Plumbing work',
+                'Sanitary Installation', 'Plastering', 'Flooring', 'Painting',
+                'POP False ceiling', 'Modular Kitchen', 'Boundary wall',
+                'Water Connection', 'Electrical connection'
+            ];
+
+            const criticalTasks = [
+                'Excavation', 'Foundation & Plinth beams', 'RCC Column starters',
+                'Columns, Roof slab, Beams & Staircase', 'Brickwork, Lintels, Sunshades',
+                'Installation of doors and windows', 'Electrical Wiring & Accessories',
+                'Plumbing work', 'Sanitary Installation', 'Plastering', 'Flooring', 'Painting'
+            ];
+
+            const parallelTasks = [
+                'Building plan & approvals', 'Soakpit/Septic tank', 'Dug well/Borewell',
+                'Backfilling', 'Doors & windows', 'POP False ceiling',
+                'Boundary wall', 'Water Connection', 'Electrical connection'
+            ];
+
+            const individualTasks = ['Modular Kitchen'];
+
+            // Helper function to calculate dates dynamically
+            const calculateDateRange = (startOffset, endOffset) => {
+                const today = new Date();
+                const startDate = new Date(today);
+                startDate.setDate(today.getDate() + startOffset);
+                const endDate = new Date(today);
+                endDate.setDate(today.getDate() + endOffset);
+                return [startDate.toISOString().split('T')[0], endDate.toISOString().split('T')[0]];
+            };
+
+            const taskDurations = [
+                calculateDateRange(0, 90), // Building plan & approvals
+                calculateDateRange(0, 2), // Excavation
+                calculateDateRange(0, 20), // Soakpit/Septic tank
+                calculateDateRange(0, 2), // Dug well/Borewell
+                calculateDateRange(3, 22), // Foundation & Plinth beams
+                calculateDateRange(25, 28), // Backfilling
+                calculateDateRange(25, 31), // RCC Column starters
+                calculateDateRange(32, 76), // Columns, Roof slab, Beams & Staircase
+                calculateDateRange(91, 120), // Brickwork, Lintels, Sunshades
+                calculateDateRange(0, 30), // Doors & windows
+                calculateDateRange(121, 135), // Installation of doors and windows
+                calculateDateRange(131, 140), // Electrical Wiring & Accessories
+                calculateDateRange(141, 147), // Plumbing work
+                calculateDateRange(148, 152), // Sanitary Installation
+                calculateDateRange(153, 172), // Plastering
+                calculateDateRange(173, 190), // Flooring
+                calculateDateRange(191, 205), // Painting
+                calculateDateRange(171, 178), // POP False ceiling
+                calculateDateRange(179, 185), // Modular Kitchen
+                calculateDateRange(121, 126), // Boundary wall
+                calculateDateRange(0, 30), // Water Connection
+                calculateDateRange(0, 90) // Electrical connection
+            ];
+
+            const taskColors = tasks.map(task => {
+                if (criticalTasks.includes(task)) {
+                    return 'rgba(255, 99, 132, 0.5)'; // Red for critical tasks
+                } else if (parallelTasks.includes(task)) {
+                    return 'rgba(255, 206, 86, 0.5)'; // Yellow for parallel tasks
+                } else if (individualTasks.includes(task)) {
+                    return 'rgba(75, 192, 192, 0.5)'; // Green for individual tasks
+                } else {
+                    return 'rgba(201, 203, 207, 0.5)'; // Default color
+                }
+            });
+
+            const data = {
+                labels: tasks,
+                datasets: [{
+                    label: 'Construction Schedule',
+                    data: taskDurations.map((range, index) => ({
+                        x: range.map(date => new Date(date).getTime()),
+                        y: index
+                    })),
+                    backgroundColor: taskColors,
+                    borderColor: taskColors.map(color => color.replace('0.5', '1')), // Make border color solid
+                    borderWidth: 1,
+                    borderSkipped: false,
+                    barThickness: 15
+                }]
+            };
+
+            const config = {
+                type: 'bar',
+                data,
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function (value) {
+                                    const date = new Date(value);
+                                    return date.toISOString().split('T')[0];
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Dates'
+                            },
+                            type: 'time',
+                            time: {
+                                unit: 'day',
+                                tooltipFormat: 'MMM dd, yyyy'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Tasks'
+                            }
+                        }
+                    }
+                }
+            };
+
+            new Chart(ctx, config);
+        });
+    </script>
+</body>
+</html>

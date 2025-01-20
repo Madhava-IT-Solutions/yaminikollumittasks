@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Construction Gantt Chart</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1 class="construction">Construction <span class="gantt"> Planner</span></h1>
+        <label for="startDate">Select Construction Start Date:</label>
+        <input type="date" id="startDate" onchange="generateChart()">
+        <div class="timeline" id="timeline"></div>
+        <div class="gantt-chart" id="ganttChart"></div>
+
+        <div class="legend">
+            <div><span class="indicator critical"></span> Critical</div>
+            <div><span class="indicator parallel"></span> Parallel</div>
+            <div><span class="indicator individual"></span> Individual</div>
+        </div>
+    </div>
+
+
+     <div>
+        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/engineer-holding-blueprint-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--construction-manager-for-site-male-house-plan-engineering-character-pack-man-illustrations-4081279.png" alt="Flipkart Logo" class="logo">
+        
+        <table>
+            <tr>
+                <th>Tentative Construction Cost (100 sqmt)</th>
+                <th>Loss Due to Delay Per Day</th>
+                <th>Loss Due to Delay Per Month</th>
+                <th>Loss Due to Delay Per Year</th>
+            </tr>
+            <tr>
+                <td>&#8377; 15,81,541</td>
+                <td>&#8377; 650</td>
+                <td>&#8377; 19,500</td>
+                <td>&#8377; 2,37,250</td>
+            </tr>
+        </table>
+    </div>
+
+
+  
+       
+            
+        
+      
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>

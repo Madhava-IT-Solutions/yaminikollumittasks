@@ -1,0 +1,158 @@
+#unit, #area, #floor{
+margin-right: 20px;
+font-size: bold;
+width: 90px;
+padding: 5px;
+margin-right: 15px;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+#Next{
+    background-color: rgb(215, 51, 51);
+    color: white;
+    width: 90px;
+padding: 5px;
+margin-right: 15px;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.figure {
+    flex: 1;
+    text-align: right;
+}
+.container {
+    flex: 1;
+    text-align: left;
+}
+.logo {
+    max-width: 300px;
+    height: auto;
+}
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: whi(215, 51, 51);
+    color: black;
+
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+.construction{
+    color: #e13131;
+}
+.gantt{
+   color: #ffcc00;
+}
+.gantt-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gantt-chart {
+    display: grid;
+    grid-template-columns: 150px 1fr 150px;
+    margin-top: 20px;
+    align-items: center;
+    width: 100%;
+}
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #ddd;
+}
+.task-name, .task-dates {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.bar {
+    color: white;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+}
+.critical { background-color: #ff4d4d; }
+.parallel { background-color: #ffcc00; }
+.individual { background-color: #4caf50; }
+.pink-bg { background-color: #ddd; }
+.blue-bg { background-color: #add8e6; }
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.legend div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.indicator {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+
+
+.figure{
+    text-align: center;
+}
+
+        
+     
+        .container-gc {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .graph {
+            margin: 20px 0;
+            width: 100%;
+            height: 300px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid rgb(206, 49, 37);
+            text-align: center;
+        }
+        th {
+            background-color: rgb(206, 49, 37);
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .task-name input {
+            width: 50px;  /* Adjust the width */
+            padding: 5px;
+            font-size: 12px;
+            text-align: center;
+            margin-left: 10px;
+            height: 6px;
+        }
+        
+            

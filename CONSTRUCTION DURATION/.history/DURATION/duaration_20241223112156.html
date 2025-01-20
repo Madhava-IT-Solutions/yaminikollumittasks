@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Construction Gantt Chart</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1 class="construction">Construction <span class="gantt"> Planner</span></h1>
+        <label for="startDate">Select Construction Start Date:</label>
+        <input type="date" id="startDate" onchange="generateChart()">
+        <div class="timeline" id="timeline"></div>
+        <div class="gantt-chart" id="ganttChart"></div>
+    </div>
+
+    
+  
+        <div class="main-container">
+            <div class="container-cost">
+                <h1>Area Cost Calculator</h1>
+                <label for="area">Enter Area:</label>
+                <input type="number" id="area" placeholder="Enter area" required>
+
+                
+
+                
+                <label for="unit">Select Unit:</label>
+                <select id="unit">
+                    <option value="sqm">Square Meter</option>
+                    <option value="sqyd">Square Yard</option>
+                    <option value="sqft">Square Feet</option>
+                </select>
+                
+                <label for="floor">Select Floor (G-n):</label>
+                <input type="number" id="floor" placeholder="Enter floor (e.g., 1, 2, 3)" required>
+                
+                <button onclick="calculateCost()">Next</button>
+                <button class="reset" onclick="resetForm()">Reset</button>
+    
+                <table id="resultTable" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>Tentative Cost (₹)</th>
+                            <th>Loss per Day (₹)</th>
+                            <th>Loss per Month (₹)</th>
+                            <th>Loss per Year (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="tentativeCost"></td>
+                            <td id="lossPerDay"></td>
+                            <td id="lossPerMonth"></td>
+                            <td id="lossPerYear"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/engineer-holding-blueprint-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--construction-manager-for-site-male-house-plan-engineering-character-pack-man-illustrations-4081279.png" alt="Flipkart Logo" class="logo">
+        </div>
+      
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>

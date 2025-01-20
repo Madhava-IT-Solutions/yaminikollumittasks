@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Measurement and Cost Calculation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Unit Measurement and Cost Calculation</h1>
+    <form id="unitForm">
+      <label for="unitSelect">Select Unit of Measurement:</label>
+      <select id="unitSelect" required>
+        <option value="squareMeter">Square Meter</option>
+        <option value="squareYard">Square Yard</option>
+        <option value="squareFeet">Square Feet</option>
+      </select>
+      <button type="button" id="nextButton">Next</button>
+    </form>
+    <div id="resultTable" class="hidden">
+      <table>
+        <thead>
+          <tr>
+            <th>Tentative Cost</th>
+            <th>Loss Due to Delay Per Day</th>
+            <th>Loss Due to Delay Per Month</th>
+            <th>Loss Due to Delay Per Year</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

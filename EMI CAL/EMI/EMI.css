@@ -1,0 +1,195 @@
+/* Basic Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.home {
+    color: #900000;
+    text-align: center;
+}
+
+header {
+    background-color: #900000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+#bank-offers {
+    margin-top: 100px;
+}
+
+.marquee-container {
+    color: black;
+    background-color: #ddd;
+    padding: 1px;
+    text-align: center;
+}
+
+.loan-form, .emi-result, .graph-container, .amortization-table, .bank-offers {
+    margin: 50px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#interest-value {
+    margin-bottom: 25px;
+}
+
+input[type="number"], input[type="range"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #900000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #ff9800;
+}
+
+h2, h3 {
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+#emiGraph {
+    width: 100%;
+    height: 300px;
+}
+
+.emi {
+    color: #e1de07;
+}
+
+.principal {
+    margin-bottom: 30px;
+}
+
+.minimize {
+    width: 650px;
+}
+
+.align {
+    text-align: justify;
+    transform: translateY(-8px);
+}
+
+.bank {
+    text-align: left;
+    transform: translateY(-20px);
+}
+
+.header-image {
+    width: 50px;
+    height: 30px;
+    margin: 0px;
+    padding-right: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .loan-form, .emi-result, .graph-container, .amortization-table, .bank-offers {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .minimize {
+        width: 100%; /* Make minimize div take full width */
+    }
+
+    table th, table td {
+        font-size: 14px; /* Adjust font size for smaller screens */
+        padding: 8px;
+    }
+
+    header {
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    input[type="number"], input[type="range"] {
+        padding: 8px;
+    }
+
+    #emiGraph {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .loan-form, .emi-result, .graph-container, .amortization-table, .bank-offers {
+        margin: 10px;
+        padding: 10px;
+        border: none; /* Simplify layout on very small screens */
+    }
+
+    .minimize {
+        width: 100%;
+    }
+
+    header {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%; /* Full width buttons for easier tapping */
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    input[type="number"], input[type="range"] {
+        padding: 8px;
+        margin: 3px 0;
+        font-size: 14px;
+    }
+
+    table th, table td {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    #emiGraph {
+        height: 200px;
+    }
+
+    .header-image {
+        width: 40px;
+        height: 25px;
+    }
+}

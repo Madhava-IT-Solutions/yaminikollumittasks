@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Gantt Chart - House Construction</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+    #info {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="info">
+    <h3>3D Gantt Chart: House Construction Schedule</h3>
+    <p>Use mouse to navigate, zoom, and rotate the chart.</p>
+  </div>
+  <script>
+    // Data for activities
+    const activities = [
+      { name: "Building plan & approvals", start: 1, duration: 90 },
+      { name: "Excavation", start: 1, duration: 2 },
+      { name: "Soakpit/Septic tank", start: 1, duration: 20 },
+      { name: "Dug well/Borewell", start: 1, duration: 2 },
+      { name: "Foundation & Plinth beams", start: 3, duration: 20 },
+      { name: "Backfilling", start: 25, duration: 4 },
+      { name: "RCC Column starters", start: 25, duration: 7 },
+      { name: "Columns, Roof slab, Beams & Staircase", start: 32, duration: 45 },
+      { name: "Brickwork, Lintels, Sunshades", start: 91, duration: 30 },
+      { name: "Doors & windows", start: 1, duration: 30 },
+      { name: "Installation of doors/windows", start: 121, duration: 15 },
+      { name: "Electrical Wiring & Accessories", start: 131, duration: 10 },
+      { name: "Plumbing work", start: 141, duration: 7 },
+      { name: "Sanitary Installation", start: 148, duration: 5 },
+      { name: "Plastering", start: 153, duration: 20 },
+      { name: "Flooring", start: 173, duration: 18 },
+      { name: "Painting", start: 191, duration: 15 },
+      { name: "POP False ceiling", start: 171, duration: 7 },
+      { name: "Modular Kitchen", start: 179, duration: 7 },
+      { name: "Boundary wall", start: 121, duration: 6 },
+      { name: "Water Connection", start: 1, duration: 30 },
+      { name: "Electrical connection", start: 1, duration: 90 },
+    ];
+
+    // Three.js setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Light
+    const light = new THREE.PointLight(0xffffff, 1, 100);
+    light.position.set(10, 10, 10);
+    scene.add(light);
+
+    // Axes and grid
+    const gridHelper = new THREE.GridHelper(200, 50);
+    scene.add(gridHelper);
+
+    // Create bars for each activity
+    const barWidth = 2; // Width of each activity bar
+    const gap = 5; // Gap between bars
+    const material = new THREE.MeshStandardMaterial({ color: 0x007bff });
+
+    activities.forEach((activity, index) => {
+      const geometry = new THREE.BoxGeometry(
+        barWidth,
+        activity.duration,
+        1
+      );
+      const bar = new THREE.Mesh(geometry, material);
+      bar.position.set(index * gap, activity.start + activity.duration / 2, 0);
+      scene.add(bar);
+
+      // Add labels
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("2d");
+      context.font = "24px Arial";
+      context.fillStyle = "white";
+      context.fillText(activity.name, 10, 50);
+
+      const texture = new THREE.CanvasTexture(canvas);
+      const labelMaterial = new THREE.SpriteMaterial({ map: texture });
+      const sprite = new THREE.Sprite(labelMaterial);
+      sprite.scale.set(5, 2.5, 1);
+      sprite.position.set(index * gap, activity.start + activity.duration + 5, 0);
+      scene.add(sprite);
+    });
+
+    camera.position.z = 100;
+
+    // Controls
+    function animate() {
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Resize handler
+    window.addEventListener("resize", () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>

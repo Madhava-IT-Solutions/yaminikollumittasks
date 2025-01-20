@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Cost and Delay Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .highlight {
+            background-color: #4caf50;
+            color: white;
+        }
+        input[type="number"] {
+            padding: 10px;
+            width: 150px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Construction Cost and Delay Analysis</h1>
+        <label for="area">Enter Area in sqmt:</label>
+        <input type="number" id="area" placeholder="Enter area">
+        <button onclick="calculateCosts()">Calculate</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Tentative Construction Cost</th>
+                    <th>Loss Due to Delay Per Day</th>
+                    <th>Loss Due to Delay Per Month</th>
+                    <th>Loss Due to Delay Per Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="cost">-</td>
+                    <td id="dailyLoss">-</td>
+                    <td id="monthlyLoss">-</td>
+                    <td id="yearlyLoss">-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const baseCostPer100Sqmt = 1581541;
+        const dailyLossPer100Sqmt = 650;
+        const monthlyLossPer100Sqmt = 19500;
+        const yearlyLossPer100Sqmt = 237250;
+
+        function calculateCosts() {
+            const area = document.getElementById('area').value;
+            if (area && area > 0) {
+                const multiplier = area / 100;
+
+                const cost = baseCostPer100Sqmt * multiplier;
+                const dailyLoss = dailyLossPer100Sqmt * multiplier;
+                const monthlyLoss = monthlyLossPer100Sqmt * multiplier;
+                const yearlyLoss = yearlyLossPer100Sqmt * multiplier;
+
+                document.getElementById('cost').innerText = `₹ ${cost.toLocaleString()}`;
+                document.getElementById('dailyLoss').innerText = `₹ ${dailyLoss.toLocaleString()}`;
+                document.getElementById('monthlyLoss').innerText = `₹ ${monthlyLoss.toLocaleString()}`;
+                document.getElementById('yearlyLoss').innerText = `₹ ${yearlyLoss.toLocaleString()}`;
+            } else {
+                alert('Please enter a valid area.');
+            }
+        }
+    </script>
+</body>
+</html>

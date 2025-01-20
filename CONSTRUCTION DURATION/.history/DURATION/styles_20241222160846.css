@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.chart-wrapper {
+    display: flex;
+    position: relative;
+}
+
+.y-axis {
+    width: 250px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.y-axis-labels div {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+.x-axis {
+    flex: 1;
+    overflow-x: auto;
+    position: relative;
+}
+
+.x-axis-labels {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.x-axis-labels div {
+    width: 10px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}
+
+#gantt-chart {
+    position: relative;
+}
+
+.gantt-row {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.gantt-bar {
+    position: absolute;
+    height: 30px;
+    background-color: #4caf50;
+    border-radius: 5px;
+    line-height: 30px;
+}
+
+.gantt-date {
+    position: absolute;
+    left: calc(100% + 5px);
+    top: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.axis-label {
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.y-axis-title {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: rotate(-90deg);
+    transform-origin: left center;
+    font-size: 18px;
+}
+
+.x-axis-title {
+    margin-top: 20px;
+    font-size: 18px;
+}

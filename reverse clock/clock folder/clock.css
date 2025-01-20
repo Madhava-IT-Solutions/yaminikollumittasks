@@ -1,0 +1,219 @@
+/* General Styles */
+.container {
+  background-color: rgb(246, 229, 246);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: 90vh;
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left-section {
+  width: 50%;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px 10px;
+  font-size: 16px;
+  background-color: #8a627d;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #218888;
+}
+
+.time-display {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.error {
+  color: red;
+}
+
+/* 3D Clock Style */
+.clock {
+  width: 300px;
+  height: 300px;
+  border: 10px solid #333;
+  border-radius: 50%;
+  position: relative;
+  background-color: #a87da3;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transform-style: preserve-3d;
+  transform: rotateX(10deg) rotateY(10deg);
+  margin-top: 50px;
+}
+
+.clock .center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.clock .hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 50% 100%;
+  background-color: black;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+.clock .hour {
+  width: 8px;
+  height: 70px;
+}
+
+.clock .minute {
+  width: 6px;
+  height: 90px;
+}
+
+.clock .second {
+  width: 2px;
+  height: 110px;
+  background-color: red;
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 18px;
+  padding: 10px 0;
+}
+
+.current-date,
+.current-time {
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 50px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .left-section {
+    width: 70%;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .time-display {
+    font-size: 24px;
+  }
+
+  .clock {
+    width: 250px;
+    height: 250px;
+    border-width: 8px; /* Adjust border for smaller size */
+    margin-top: 30px; /* Reduce margin */
+  }
+
+  .clock .hour {
+    height: 60px; /* Shorten hour hand */
+    width: 6px;   /* Narrower hour hand */
+  }
+
+  .clock .minute {
+    height: 80px; /* Shorten minute hand */
+    width: 5px;   /* Narrower minute hand */
+  }
+
+  .clock .second {
+    height: 100px; /* Shorten second hand */
+    width: 1.5px;  /* Narrower second hand */
+  }
+}
+
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  .left-section {
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .time-display {
+    font-size: 20px;
+  }
+
+  .clock {
+    width: 200px;
+    height: 200px;
+    border-width: 6px; /* Thinner border for smaller screen */
+    margin-top: 20px;  /* Reduce margin further */
+  }
+
+  .clock .hour {
+    height: 50px; /* Shorten hour hand further */
+    width: 5px;   /* Narrower hour hand */
+  }
+
+  .clock .minute {
+    height: 70px; /* Shorten minute hand further */
+    width: 4px;   /* Narrower minute hand */
+  }
+
+  .clock .second {
+    height: 90px; /* Shorten second hand further */
+    width: 1px;   /* Narrower second hand */
+  }
+}

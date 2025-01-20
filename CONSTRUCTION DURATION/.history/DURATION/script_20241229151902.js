@@ -1,0 +1,25 @@
+const activities = [
+    { name: 'Building plan & approvals', days: 90, start: 1, type: 'parallel' },
+    { name: 'Excavation', days: 2, start: 1, type: 'critical' },
+    { name: 'Soakpit/Septic tank', days: 20, start: 1, type: 'parallel' },
+    { name: 'Dug well/Borewell', days: 2, start: 1, type: 'parallel' },
+    { name: 'Foundation & Plinth beams', days: 20, start: 3, type: 'critical' },
+    { name: 'Backfilling', days: 4, start: 25, type: 'parallel' },
+    { name: 'RCC Column ', days: 7, start: 25, type: 'critical' },
+    { name: 'Columns, Roof slab, Beams & Staircase', days: 45, start: 32, type: 'critical' },
+    { name: 'Brickwork, Lintels, Sunshades', days: 30, start: 91, type: 'critical' },
+    { name: 'Doors & windows', days: 30, start: 1, type: 'parallel' },
+    { name: 'Installation of doors and windows', days: 15, start: 121, type: 'critical' },
+    { name: 'Electrical Wiring & Accessories', days: 10, start: 131, type: 'critical' },
+    { name: 'Plumbing work', days: 7, start: 141, type: 'critical' },
+    { name: 'Sanitary Installation', days: 5, start: 148, type: 'critical' },
+    { name: 'Plastering', days: 20, start: 153, type: 'critical' },
+    { name: 'Flooring', days: 18, start: 173, type: 'critical' },
+    { name: 'Painting', days: 15, start: 191, type: 'critical' },
+    { name: 'POP False ceiling', days: 7, start: 171, type: 'parallel' },
+    { name: 'Modular Kitchen', days: 7, start: 179, type: 'individual' },
+    { name: 'Boundary wall', days: 6, start: 121, type: 'parallel' },
+    { name: 'Water Connection', days: 30, start: 1, type: 'parallel' },
+    { name: 'Electrical connection', days: 90, start: 1, type: 'parallel' }
+];
+

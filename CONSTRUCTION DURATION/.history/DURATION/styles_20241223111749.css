@@ -1,0 +1,106 @@
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+        }
+        .gantt-chart {
+            display: grid;
+            grid-template-columns: 150px 1fr 150px;
+            margin-top: 20px;
+            align-items: center;
+        }
+        .task-name, .task-dates {
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .bar {
+            color: white;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 5px;
+        }
+        .critical { background-color: #ff4d4d; }
+        .parallel { background-color: #ffcc00; }
+        .individual { background-color: #4caf50; }
+        .timeline {
+            display: flex;
+            gap: 1px;
+            margin-top: 10px;
+        }
+        .timeline div {
+            flex: 1;
+            text-align: center;
+            font-size: 12px;
+            padding: 5px 0;
+            background-color: #ddd;
+        }
+        .construction{
+            color: #8e2020;
+            text-align: center;
+        }
+        .gantt{
+            color: rgb(190, 190, 17);
+        }
+        #startDate{
+tect
+        }
+
+
+        
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+.container-cost {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    text-align: center;
+}
+label, select, input, button {
+    margin: 10px 0;
+    display: block;
+    width: 100%;
+}
+button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #218838;
+}
+.reset {
+    background-color: #dc3545;
+}
+.reset:hover {
+    background-color: #c82333;
+}
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+th {
+    background-color: #007bff;
+    color: white;
+}
+.logo {
+    max-width: 300px;
+}
+

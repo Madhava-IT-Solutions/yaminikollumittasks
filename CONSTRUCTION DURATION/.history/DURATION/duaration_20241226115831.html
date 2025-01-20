@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Construction Gantt Chart</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<div class="container">
+    <h1 class="construction">Construction <span class="gantt"> Planner</span></h1>
+    <label for="startDate">Select Construction Start Date:</label>
+    <input type="date" id="startDate" onchange="generateChart()">
+    <div class="timeline" id="timeline"></div>
+    <div class="gantt-chart" id="ganttChart"></div>
+</div>
+</html>

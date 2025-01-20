@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Construction Gantt Chart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Ensuring the Gantt chart is responsive */
+        .gantt-chart {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 20px;
+            position: relative;
+        }
+        .gantt-chart .bar {
+            height: 30px;
+            background-color: #007bff;
+            margin-bottom: 10px;
+        }
+        .gantt-chart .bar.critical {
+            background-color: red;
+        }
+        .gantt-chart .bar.parallel {
+            background-color: green;
+        }
+        .gantt-chart .bar.individual {
+            background-color: orange;
+        }
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .timeline span {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center py-5">
+        <h1 class="construction">Construction <span class="gantt">Planner</span></h1> 
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card p-4">
+                    <form>
+                        <div class="mb-3">
+                            <label for="unit" class="form-label">Select Unit</label>
+                            <select id="unit" class="form-select">
+                                <option value="1">Square Meter</option>
+                                <option value="0.8361273574">Square Yard</option>
+                                <option value="0.09290304014">Square Feet</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="area" class="form-label">Area</label>
+                            <input type="number" id="area" class="form-control" placeholder="Enter area value">
+                        </div>
+                        <div class="mb-3">
+                            <label for="floor" class="form-label">Floors</label>
+                            <input type="number" id="floor" class="form-control" placeholder="Enter number of floors">
+                        </div>
+                        <button type="button" class="btn btn-primary w-100" onclick="calculateCost()">Next</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <img src="https://cdn3d.iconscout.com/3d/premium/thumb/engineer-holding-blueprint-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--construction-manager-for-site-male-house-plan-engineering-character-pack-man-illustrations-4081279.png" alt="Engineer Blueprint" class="img-fluid" style="max-width: 80%;">
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <table class="table table-bordered text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Tentative Cost</th>
+                            <th>Loss Due to Delay Per Day</th>
+                            <th>Loss Due to Delay Per Month</th>
+                            <th>Loss Due to Delay Per Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="tentativeCost">-</td>
+                            <td id="delayPerDay">-</td>
+                            <td id="delayPerMonth">-</td>
+                            <td id="delayPerYear">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="card p-4">
+            <div class="legend d-flex justify-content-evenly mb-3">
+                <div><span class="indicator critical"></span> Critical Activity</div>
+                <div><span class="indicator parallel"></span> Parallel Activity</div>
+                <div><span class="indicator individual"></span> Individual Activity</div>
+            </div>
+            <div class="mb-3">
+                <label for="startDate" class="form-label">Select Construction Start Date:</label>
+                <input type="date" id="startDate" class="form-control" onchange="generateChart()">
+            </div>
+            <div class="timeline" id="timeline"></div>
+            <div class="gantt-chart mt-4" id="ganttChart"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

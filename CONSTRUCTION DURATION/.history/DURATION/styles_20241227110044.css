@@ -1,0 +1,106 @@
+<style>
+.chart-container {
+    width: 90%;
+    margin: 20px auto;
+}
+.gantt-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gantt-chart {
+    display: grid;
+    grid-template-columns: 150px 1fr 150px;
+    margin-top: 20px;
+    align-items: center;
+    width: 100%;
+}
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #ddd;
+}
+.task-name, .task-dates {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.bar {
+    color: white;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+}
+.critical { background-color: #ff4d4d; }
+.parallel { background-color: #ffcc00; }
+.individual { background-color: #4caf50; }
+.construction{
+    color: #8e2020;
+    text-align: center;
+}
+.gantt{
+    color: rgb(190, 190, 17);
+}
+.pink-bg { background-color: #ddd; }
+.blue-bg { background-color: #add8e6; }
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.legend div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.indicator {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 5px;
+}
+</style>
+
+
+
+        
+     
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .table-container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .graph {
+            margin: 20px 0;
+            width: 100%;
+            height: 300px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    
